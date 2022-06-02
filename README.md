@@ -17,8 +17,8 @@ Inget.
 
 ## Förtydliganden/motivering
 
-• Försöker tänka igenom uppgiften först utifrån att kund och användarmässigt perspektiv.
-• Gag gillar när saker är genomtänkta och ser bra ut, men det gör också att det blir mer arbete. Behöver jobba och bli bättre på MVP.
-• Lyckades inte lösa problemet med [Auzorize(Roles = ”rollnamn”)] varför det inte funkade.
-• Jobbar med "taggar" som kategorisering, vilket gör det väldigt flexibelt.
-• Skulle viljat refaktorera koden mer, men hann inte.
+• Försöker tänka igenom uppgiften först utifrån att kund och användarmässigt perspektiv.   
+• Jag gillar när saker är genomtänkta och ser bra ut, men det gör också att det blir mer arbete. Behöver jobba och bli bättre på MVP.  
+• Lyckades inte lösa problemet med [Auzorize(Roles = ”rollnamn”)] varför det inte funkade.   
+• Jobbar med "taggar" som kategorisering, vilket gör det väldigt flexibelt.   
+• Skulle viljat refaktorera koden mer, men hann inte.   
