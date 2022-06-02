@@ -1,0 +1,79 @@
+@model CreateAuctionItemViewModel
+@{
+    ViewData["Title"] = "Nytt auktionsobjekt";
+}
+
+<form enctype="multipart/form-data" asp-action="CreateNewAuctionItem" method="post" class="form-horizontal" role="form" >
+
+    <div class="text-left pl-3">
+        <h1 class="display-4">@ViewBag.sideHeader</h1>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4 mb-3 pl-4">
+
+            <label asp-for="AuctionItemId" class="control-label"></label>
+            <div class="mb-3">
+                @Html.TextBoxFor(m => m.AuctionItemId, new { placeholder = "Ex. TGH867367", @class = "form-control" })
+                <span asp-validation-for="AuctionItemId" class="text-danger"></span>
+                <span class="text-danger">@ViewBag.auctionItenIdExistsMessage</span>
+                <span class="text-danger">@ViewBag.idNotOk</span>
+            </div>
+        
+            <div class="mb-3">
+                <label asp-for="Definition" class="control-label"></label>
+                @Html.TextBoxFor(m => m.Definition, new { placeholder = "Namn på auktionsobjektet", @class = "form-control" })
+                <span asp-validation-for="Definition" class="text-danger"></span> 
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Decade" class="control-label"></label>
+                @Html.TextBoxFor(m => m.Decade, new { placeholder = "Ex. 1800", @class = "form-control" })
+                <span asp-validation-for="Decade" class="text-danger"></span>
+                <span class="text-danger">@ViewBag.notAZeroMessage</span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="PurchaseCost" class="control-label"></label>
+                @Html.TextBoxFor(m => m.PurchaseCost, new { placeholder = "Kostnad i bara siffror ex. 299", @class = "form-control" })
+                <span asp-validation-for="PurchaseCost" class="text-danger"></span> 
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="StartingPrice" class="control-label"></label>
+                @Html.TextBoxFor(m => m.StartingPrice, new { placeholder = "Utropspris i bara siffror ex. 399", @class = "form-control" })
+                <span asp-validation-for="StartingPrice" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group col-md-4 mb-3 pl-4">
+            <div class="mb-3">
+                <label asp-for="Description" type="text" class="control-label"></label>
+                @Html.TextAreaFor(m => m.Description, new { placeholder = "Beskrivning av auktionsobjektet", @class = "form-control" })
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+            <label asp-for="Tags" type="text" class="control-label"></label>
+            <div>
+                <input asp-for="Tags" class="control-label" data-role="tagsinput" />
+                <button type="button" class="btn btn-primary">Lägg till tagg</button>
+            </div>
+            <span asp-validation-for="Tags" class="text-danger"></span> 
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Image" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="Image" class = "form-control custom-file-input">
+                    <label class="custom-file-label">Välj fil...</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3 ml-3">
+        <input type="submit" class="btn btn-primary" value="Spara"/>
+    </div>
+
+</form>
+

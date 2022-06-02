@@ -1,0 +1,44 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+@model AuctionItem
+
+<div id="auctionItemCard" class="card px-3 py-3" style="width: 18rem;">
+    <img class="card-img-top text-center" src="@Url.Content(Model.ImageUrl)" alt="Ingen bild hittad!">
+    <h6 class="card-subtitle mb-2 text-muted text-center mt-2">@Model.AuctionItemId</h6>
+    <h5 class="card-title">@Model.Definition</h5>
+    <p class="card-text">@Model.Description</p>
+    <p class="card-text font-weight-bold mb-1" >Kategorisering:</p>
+    @if (Model.Tags != null)
+    {
+        <div class="mb-3">
+            @foreach (var tag in Model.AuctionItemTags)
+            {
+                <a asp-controller="AuctionItem" asp-action="ListAuctionItems" asp-route-id="@tag" class="badge badge-info">@tag</a>
+            }
+        </div>
+    }
+    <p class="card-text font-weight-bold mb-2" >Från årtionde: @Model.Decade-talet</p>
+    <p class="card-text font-weight-bold mb-2" >Inköpspris: @Model.PurchaseCost kr</p>
+    <p class="card-text font-weight-bold mb-2" >Utropspris: @Model.StartingPrice kr</p>
+
+    @if (@Model.Sold)
+    {
+        <div>
+            <p class="card-text font-weight-bold text-danger d-inline" >Såld:</p>
+            <p class="card-text font-weight-bold d-inline">@Model.SalePrice kr</p>
+       </div>
+    }
+    @if (!@Model.Delivered)
+    {
+       <p class="card-text font-weight-bold text-success" >Kvar i lager</p> 
+    }
+    else
+    {
+        <p class="card-text font-weight-bold text-primary" >Levererad</p>
+    }
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-controller="AuctionItem" asp-action="EditAuctionItem" asp-route-id="@Model.AuctionItemId" type="button" class="btn btn-primary">Redigera</a>
+    }
+</div>

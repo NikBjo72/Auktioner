@@ -1,0 +1,11 @@
+@model AuctionItemListViewModel
+
+<h1>@Model.CurrentTag</h1>
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    @foreach (var auctionItem in Model.AuctionItems)
+    {   
+        <div class="col" id="AuctionItemsCardContainer">
+            <partial name="_AuctionItemCard" model="auctionItem"/>
+        </div>
+    }
+</div>

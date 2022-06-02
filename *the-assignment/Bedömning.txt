@@ -1,0 +1,22 @@
+1: 2/2p — Ok 
+2: 2/2p — Ok 
+3: 2/2p — Ok 
+4: 2/2p — Bra 
+5: 10/10p — Bra! 
+6: 5/5p — Bra sett till skyddet som finns. 
+7: 8/8p — Formuläret fungerar bra! 
+8: 8/8p 
+9: 2/2p 
+10: 2/2p 
+11: 5/5p — Bra! 
+12: 4/4p — Mycket bra! 
+13: 8/8p — Mycket bra! Snygga tester! 
+14: 4/4p — Mycket bra! 
+15: 4/4p — Bra! 
+16: 2/2p — Ok 
+17: 7/10p — Bra, men saknar motivering till varför du valt den strukturen. 
+18: 7/10p — Ok bra, men hur skulle du kunna åtgärda problemet du nämner? 
+19: 10/10p — Jättebra 
+
+POÄNG: 94p
+Omdöme: VG (100 möjliga poäng)

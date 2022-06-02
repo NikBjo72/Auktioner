@@ -1,0 +1,92 @@
+@model EditAuctionItemViewModel
+@{
+    ViewData["Title"] = "Nytt auktionsobjekt";
+}
+
+<form enctype="multipart/form-data" asp-action="EditAuctionItem" method="post" class="form-horizontal" role="form" >
+
+    <div class="text-left pl-3">
+        <h1 class="display-4">@ViewBag.sideHeader</h1>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4 mb-3 pl-4">
+ 
+            <div class="mb-3">
+                <span>Id</span>
+                <h4 class="AuctionItemSolid">@Model.AuctionItemId</h4>
+                <input hidden asp-for="AuctionItemId" value="@Model.AuctionItemId"/>
+            </div>
+        
+            <div class="mb-3">
+                <span>Objektbenämning</span>
+                <h6 class="AuctionItemSolid">@Model.Definition</h6>
+            </div>
+
+            <div class="mb-3">
+                <span> Årtionde för tillverkning</span>
+                <h6 class="AuctionItemSolid">@Model.Decade</h6>
+            </div>
+
+            <div class="mb-3">
+                <span>Inköpskostnad (kr)</span>
+                <h6 class="AuctionItemSolid">@Model.PurchaseCost</h6>
+            </div>
+
+            <div class="mb-3">
+                <span>Utropspris (kr)</span>
+                <h6 class="AuctionItemSolid">@Model.StartingPrice</h6>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SalePrice" class="control-label"></label>
+                @Html.TextBoxFor(m => m.SalePrice, new { placeholder = "Försäljningspris i bara siffror ex. 899", @class = "form-control" })
+                <span asp-validation-for="SalePrice" class="text-danger"></span> 
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Sold" class="control-label pr-3"></label>
+                @Html.CheckBox("Sold", new { @class = "form-check-inline" })
+                <span asp-validation-for="Sold" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Delivered" class="control-label pr-3"></label>
+                @Html.CheckBox("Delivered", new { @class = "form-check-inline" })
+                <span asp-validation-for="Delivered" class="text-danger"></span>
+                <span class="text-danger d-inline-block">@ViewBag.mustSetToMessage</span>
+            </div>
+        </div>
+
+        <div class="form-group col-md-4 mb-3 pl-4">
+            <div class="mb-3">
+                <label asp-for="Description" type="text" class="control-label"></label>
+                @Html.TextAreaFor(m => m.Description, new { placeholder = "Beskrivning av auktionsobjektet", @class = "form-control" })
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+            <label asp-for="Tags" type="text" class="control-label"></label>
+            <div>
+                <input asp-for="Tags" class="control-label" data-role="tagsinput" />
+                <button type="button" class="btn btn-primary mt-3">Lägg till tagg</button>
+            </div>
+            <span asp-validation-for="Tags" class="text-danger"></span> 
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Image" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="Image" class = "form-control custom-file-input">
+                    <label class="custom-file-label">@Model.ImageUrl</label>
+                    <input hidden asp-for="ImageUrl" value="@Model.ImageUrl"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3 ml-3">
+        <input type="submit" class="btn btn-primary" value="Spara"/>
+    </div>
+
+</form>
+
